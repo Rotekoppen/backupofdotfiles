@@ -1,0 +1,26 @@
+### Variables
+set $mod Mod4
+set $term kitty
+set $wm sway
+
+### Output configuration and background
+include "$HOME/dotfiles/common/sway/output"
+
+### Keyboard config
+include "$HOME/dotfiles/common/sway/keyboard"
+include "$HOME/dotfiles/common/sway/sway-keybinds"
+
+### Keybinds
+include "$HOME/dotfiles/common/sway/keybinds/*"
+include "$HOME/dotfiles/common/sway-keybinds"
+
+### Theming
+include "$HOME/dotfiles/current/sway"
+include "$HOME/dotfiles/current/sway-theme"
+
+### Autostart
+include "$HOME/dotfiles/common/sway/autostart/*.s"
+include "$HOME/dotfiles/common/sway/autostart/*.b"
+
+### Idk *shrugs*...
+include "/etc/sway/config.d/*"

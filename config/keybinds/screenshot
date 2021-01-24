@@ -1,0 +1,12 @@
+# CTRL = Copy
+# ALT = Freeselect
+# SHIFT = Locked to windows
+
+bindsym Print exec sh ~/config/scripts/screenshot.sh fullscreen save
+bindsym Print+Control exec sh ~/config/scripts/screenshot.sh fullscreen copy
+
+bindsym Print+Mod1 exec sh ~/config/scripts/screenshot.sh area save
+bindsym Print+Control+Mod1 exec sh ~/config/scripts/screenshot.sh area copy
+
+bindsym Print+Mod4 exec sh ~/config/scripts/screenshot.sh window save
+bindsym Print+Control+Mod4 exec sh ~/config/scripts/screenshot.sh window copy

@@ -1,0 +1,7 @@
+mpd_host 		= localhost
+mpd_port 		= 16850
+mpd_music_dir 		= ~/Musikk
+ncmpcpp_directory 	= ~/.ncmpcpp
+lyrics_directory 	= ~/.mpd/lyrics
+visualizer_type 	= spectrum
+#visualizer_look		= "+#"

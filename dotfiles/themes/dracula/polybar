@@ -1,0 +1,215 @@
+[colors]
+bg = #282a36
+bg-alt = #44475a
+bg-darker = #21222c
+fg = #f8f8f2
+
+blue = #6272a4
+cyan = #8be9fd
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+
+[base]
+background = ${colors.bg}
+foreground = ${colors.fg}
+dpi = 192
+height = 60
+font-0 = "FontAwesome:size=11;0"
+font-1 = "Roboto:size=11;2"
+font-2 = "Noto Sans:size=11;1"
+
+[bar/top]
+inherit = base
+bottom = false
+modules-left = workspaces
+modules-center = title
+modules-right = battery cpu memory temperature clock
+tray-position = right
+tray-maxsize = 48
+
+[bar/bottom]
+inherit = base
+bottom = true
+modules-left = network
+modules-center =
+modules-right = mpd pulseaudio  backlight
+
+[module/pulseaudio]
+format-volume-padding = 2
+type = internal/pulseaudio
+label-muted = 
+format-muted = <label-muted>
+format-volume = <label-volume> <ramp-volume>
+ramp-volume-0 = %{T4}%{T-}
+ramp-volume-1 = %{T4}%{T-}
+ramp-volume-2 = %{T4}%{T-}
+ramp-volume-3 = %{T4}%{T-}
+ramp-volume-4 = %{T4}%{T-}
+ramp-volume-0-foreground = ${colors.cyan}
+ramp-volume-1-foreground = ${colors.green}
+ramp-volume-2-foreground = ${colors.yellow}
+ramp-volume-3-foreground = ${colors.orange}
+ramp-volume-4-foreground = ${colors.red}
+click-right = pavucontrol
+
+[module/backlight]
+type = internal/xbacklight
+
+[module/mpd]
+type = internal/mpd
+interval = 1
+port = 16850
+label-offline =
+
+format-online = <label-song> <toggle> <bar-progress>
+label-song-padding = 4
+icon-pause = 
+icon-play = 
+label-song = %artist% - %title%
+
+bar-progress-width = 45
+bar-progress-indicator = |
+bar-progress-fill = ─
+bar-progress-empty = ─
+
+[module/network]
+type = internal/network
+interface = wlp115s0
+interval = 1.0
+
+format-connected = <label-connected>
+format-connected-padding = 2
+label-connected = %{T4}%{T-} %{T2}%essid% - %local_ip% -  %downspeed%%{T-}
+label-connected-foreground = ${colors.orange}
+
+format-disconnected = <label-disconnected>
+format-disconnected-padding = 2
+label-disconnected = %{T4}%{T-}
+label-disconnected-foreground = ${colors.red}
+
+[module/clock]
+type = internal/date
+interval = 1
+
+time = "%H:%M"
+time-alt = "%a, %b %d %H:%M:%S"
+
+format = <label>
+format-padding = 4
+format-foreground = ${colors.fg}
+label = %{T2}%time%%{T-}
+
+[module/battery]
+type = internal/battery
+full-at = 98
+
+format-charging = <label-charging> <animation-charging>
+format-charging-padding = 2
+label-charging = %percentage%%
+
+format-discharging = <label-discharging> <ramp-capacity>
+format-discharging-padding = 2
+label-discharging = %percentage%%
+
+format-full = <label-full>
+format-full-padding = 2
+label-full = %percentage%% 
+
+ramp-capacity-0 = %{T4}%{T-}
+ramp-capacity-1 = %{T4}%{T-}
+ramp-capacity-2 = %{T4}%{T-}
+ramp-capacity-3 = %{T4}%{T-}
+ramp-capacity-4 = %{T4}%{T-}
+ramp-capacity-framerate = 500
+ramp-capacity-0-foreground = ${colors.red}
+ramp-capacity-1-foreground = ${colors.orange}
+ramp-capacity-2-foreground = ${colors.yellow}
+ramp-capacity-3-foreground = ${colors.green}
+ramp-capacity-4-foreground = ${colors.cyan}
+
+animation-charging-0 = %{T4}%{T-}
+animation-charging-1 = %{T4}%{T-}
+animation-charging-2 = %{T4}%{T-}
+animation-charging-3 = %{T4}%{T-}
+animation-charging-4 = %{T4}%{T-}
+animation-charging-framerate = 500
+animation-charging-0-foreground = ${colors.red}
+animation-charging-1-foreground = ${colors.orange}
+animation-charging-2-foreground = ${colors.yellow}
+animation-charging-3-foreground = ${colors.green}
+animation-charging-4-foreground = ${colors.cyan}
+
+[module/cpu]
+type = internal/cpu
+interval = 1
+
+format = <label> <ramp-load>
+format-padding = 2
+label = %percentage%%
+label-foreground = ${colors.fg}
+
+ramp-load-0 = %{T4}%{T-}
+ramp-load-1 = %{T4}%{T-}
+ramp-load-2 = %{T4}%{T-}
+ramp-load-3 = %{T4}%{T-}
+ramp-load-4 = %{T4}%{T-}
+ramp-load-5 = %{T4}%{T-}
+ramp-load-0-foreground = ${colors.purple}
+ramp-load-1-foreground = ${colors.cyan}
+ramp-load-2-foreground = ${colors.green}
+ramp-load-3-foreground = ${colors.yellow}
+ramp-load-4-foreground = ${colors.yellow}
+ramp-load-5-foreground = ${colors.red}
+
+[module/memory]
+type = internal/memory
+label = %percentage_used%%
+format-padding = 2
+ramp-used-0 = 
+ramp-used-1 = 
+ramp-used-2 = 
+ramp-used-3 = 
+ramp-used-4 = 
+ramp-used-0-foreground = ${colors.purple}
+ramp-used-1-foreground = ${colors.cyan}
+ramp-used-2-foreground = ${colors.green}
+ramp-used-3-foreground = ${colors.yellow}
+ramp-used-4-foreground = ${colors.red}
+format = <label> <ramp-used>
+interval = 4
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+format = <label> <ramp>
+format-padding = 2
+format-warn = <label-warn>
+format-warn-padding = 2
+label = %temperature-c%
+label-foreground = ${colors.fg}
+label-warn = %temperature-c% 
+label-warn-foreground = ${colors.red}
+
+ramp-0 = %{T4}%{T-}
+ramp-1 = %{T4}%{T-}
+ramp-0-foreground = ${colors.purple}
+ramp-1-foreground = ${colors.orange}
+
+[module/title]
+type = internal/xwindow
+
+[module/workspaces]
+type = internal/xworkspaces
+label-active = " %name% "
+label-active-padding = 1
+label-active-background = ${colors.bg-alt}
+label-active-foreground = ${colors.fg}
+
+label-occupied = " %name% "
+label-occupied-padding = 1
+label-occupied-foreground = ${colors.fg}

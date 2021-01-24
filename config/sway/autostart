@@ -1,0 +1,12 @@
+
+exec monitor-sensor | bash ~/config/scripts/sway/autorotate.sh
+
+exec mpd
+exec mpd_discord_richpresence -h=localhost -p=16850 --fork --use-multiple-apps
+#exec mopidy
+
+exec export thunderbird
+
+exec discord
+
+exec kdeconnect-indicator

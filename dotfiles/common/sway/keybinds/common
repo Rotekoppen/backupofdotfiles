@@ -1,0 +1,5 @@
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+d exec ~/dotfiles/current/rofi.sh $wm

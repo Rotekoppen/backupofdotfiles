@@ -1,0 +1,11 @@
+default_border normal 0
+default_floating_border normal 8
+#gaps inner 16px
+
+# Fonts
+font pango:SourceCodePro Medium 20
+
+exec polybar --config="~/dotfiles/current/polybar" top
+exec polybar --config="~/dotfiles/current/polybar" bottom
+
+exec picom --vsync -i 0.75 -f -D 5 --opacity-rule "100: class_i = 'rofi' || class_i = 'i3lock'"

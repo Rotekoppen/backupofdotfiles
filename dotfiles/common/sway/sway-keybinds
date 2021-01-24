@@ -1,0 +1,2 @@
+bindsym Print exec sway-interactive-screenshot
+floating_modifier $mod normal

@@ -1,0 +1,1 @@
+bindsym $mod+shift+control+u exec ~/Prosjekter/Ripper/ripp.sh

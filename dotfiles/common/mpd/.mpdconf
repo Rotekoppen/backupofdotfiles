@@ -1,0 +1,43 @@
+port			"16850"
+bind_to_address		"any"
+
+music_directory		"~/Musikk"
+playlist_directory 	"~/.mpd/playlists"
+db_file			"~/.mpd/mpd.db"
+log_file		"~/.mpd/mpd.log"
+pid_file		"~/.mpd/pid"
+state_file		"~/.mpd/state"
+sticker_file		"~/.mpd/sticker.sql"
+
+# Music Visualization
+audio_output {
+	type	"fifo"
+	name	"Visualization"
+	path	"/tmp/mpd.fifo"
+	format	"44100:16:2"
+}
+
+# Music Output
+audio_output {
+	type	"pulse"
+	name	"PC-speakers"
+}
+
+# Music Streaming
+audio_output {
+        type            "httpd"
+	port		"16851"
+        name            "Web"
+	quality		"5"
+	always_on	"yes"
+	tags		"no"
+}
+
+audio_output {
+        type            "httpd"
+	port		"16852"
+        name            "TagWeb"
+	quality		"5"
+	always_on	"no"
+	tags		"yes"
+}
